@@ -7,7 +7,7 @@
   "repository": "https://github.com/jaredpetersen/nodejs-api-template.git",
   "scripts": {
     
-    "coverage": "nyc npm test"
+    "start": "node server.js"
   },
   "dependencies": {
     "config": "^3.0.1",
