@@ -2,7 +2,7 @@
 const Web3 = require("web3")
 
 const web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/f060b10184b644e5a2967f280464b88d"))
-var total;
+//var total;
 // Import the web3js library, set Infura as our provider
 
 // Set the ERC-20 balanceOf() ABI
@@ -47,19 +47,19 @@ async function getTokenBalance() {
     const formattedResult2 = +web3.utils.fromWei(result2, "ether"); 
     const formattedResult3 = +web3.utils.fromWei(result3, "ether"); 
 
-    console.log((formattedResult));
-    console.log((formattedResult3));
-    console.log((formattedResult2));
-    total=formattedResult+formattedResult2+formattedResult3
-    console.log(('valor total',total));
+    console.log('formattedResult', formattedResult);
+    console.log('formattedResult3', formattedResult3);
+    console.log('formattedResult2', formattedResult2);
+
+    return formattedResult+formattedResult2+formattedResult3
 }
 
-getTokenBalance();
 
 
-exports.status = (req, res, next) => {
-  
 
-  res.status(200).json(500000000-total);
-  
+exports.status = async (req, res, next) => {
+    const total = await getTokenBalance();
+    console.log(`total=${total} TS=${Date.now()}`);
+    
+    res.status(200).json(500000000-total);
 };
