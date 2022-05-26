@@ -6,13 +6,14 @@
   "license": "MIT",
   "repository": "https://github.com/jaredpetersen/nodejs-api-template.git",
   "scripts": {
-    
     "start": "node server.js"
   },
   "dependencies": {
     "config": "^3.0.1",
     "express": "^4.16.4",
     "morgan": "^1.7.0",
+    "request": "^2.81.0",
+    "web3": "^1.7.3",
     "winston": "^3.1.0"
   },
   "devDependencies": {
